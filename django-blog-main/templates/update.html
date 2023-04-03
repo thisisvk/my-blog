@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+.header {
+  padding: 2px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+.leftcolumn {   
+  float: left;
+  width: 100%;
+}
+
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+a{
+  text-decoration: none;
+}
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h2><a href="/" style="color: black;">My Blog</a></h2>
+  <a href="/upload" class="btn">Upload New Blog</a>
+</div>
+
+<div class="row">
+        <h1>Update Post</h1>
+        <div id="innerDiv">
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="title" value="{{post.title}}"><br><br>
+                <input type="text" name="body" value="{{post.body}}"><br><br>
+                <input type="submit" class="btn btn-primary mt-3" value="Update">
+                <a href="/" class="btn">Back to Home</a>
+            </form>
+           
+        </div>
+</div>
+
+</body>
+</html>
